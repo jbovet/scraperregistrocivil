@@ -1,20 +1,25 @@
 # Validador Documento Registro Civil
 Base url: http://validadorregistrocivil-jbovet.rhcloud.com
 
+Method: POST 
+Path: /validate
 
-Method POST                     PARAMS(JSON)
-/validate                       run         * required
-                                docNumber
-                                docType     * required  (Types)
-                                                        CEDULA
-                                                        CEDULA_EXT
-                                                        PASAPORTE_PG
-                                                        PASAPORTE_DIPLOMATICO
-                                                        PASAPORTE_OFICIAL
+PARAMS (JSON)
+  run * 
+  docNumber
+  docTypes * 
+    (Types)
+    CEDULA
+    CEDULA_EXT
+    PASAPORTE_PG
+    PASAPORTE_DIPLOMATICO
+    PASAPORTE_OFICIAL
 
+* required
 
-Response:                       true:  Valid
-Response:                       false: Invalid document or document could not be validated.
+ 
+Response:                       true:  Valid - status: Valido
+Response:                       false: Invalid document or document could not be validated. = status: cause
 
 
 Example:
