@@ -1,0 +1,60 @@
+buildscript {
+	ext {
+		springBootVersion = '1.3.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.springframework:springloaded:1.2.5.RELEASE'
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+jar {
+	baseName = 'doc-validator'
+	version = '0.0.1-SNAPSHOT'
+}
+
+war{
+    baseName = 'ROOT'
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-actuator'
+	compile('org.springframework.boot:spring-boot-starter-validation')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.codehaus.groovy:groovy-all:2.4.6')
+	compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+	compile 'org.jsoup:jsoup:1.8.3'
+
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.9'
+}
