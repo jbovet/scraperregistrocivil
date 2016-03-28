@@ -4,11 +4,11 @@ Base url: http://validadorregistrocivil-jbovet.rhcloud.com
 -------------
 Method: POST 
 Path: /validate
-
 PARAMS (JSON)
-run  * 
-docNumber
-docTypes [CEDULA,  CEDULA_EXT,  PASAPORTE_PG, PASAPORTE_DIPLOMATICO, PASAPORTE_OFICIAL] *
+
+ - run  *
+ -  docNumber
+ - docTypes [CEDULA,  CEDULA_EXT,  PASAPORTE_PG, PASAPORTE_DIPLOMATICO, PASAPORTE_OFICIAL] *
 
 * **required**
 
