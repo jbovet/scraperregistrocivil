@@ -14,8 +14,8 @@ PARAMS (JSON)
 
  -------------
  
-Response:                       true:  Valid - status: Valido
-Response:                       false: Invalid document or document could not be validated. = status: cause
+- Response:                       true:  Valid - status: Valido
+- Response:                       false: Invalid document or document could not be validated. = status: cause
 
 -------------
 Example:
