@@ -5,7 +5,7 @@ import groovyx.net.http.Method
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.builder.SpringApplicationBuilder
-import org.springframework.boot.context.web.SpringBootServletInitializer
+import org.springframework.boot.web.support.SpringBootServletInitializer
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.BindingResult
@@ -37,14 +37,14 @@ class DocValidatorApplication extends SpringBootServletInitializer {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity index() {
+    ResponseEntity index() {
         return new ResponseEntity(true, HttpStatus.OK)
     }
 
 
-        @RequestMapping(value = "/validate", method = RequestMethod.POST)
+    @RequestMapping(value = "/validate", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity check(@Valid @RequestBody DocumentRequest request, BindingResult bindingResult) {
+    ResponseEntity check(@Valid @RequestBody DocumentRequest request, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             //TODO validar tipos de documentos.
             return new ResponseEntity(["valid": false, "status": "DATOS INVALIDOS EN LA CONSULTA. * TODOS LOS DATOS SON REQUERIDOS *"], HttpStatus.OK)
@@ -68,7 +68,7 @@ class DocValidatorApplication extends SpringBootServletInitializer {
             }
 
             //build payload
-            def payload = ["form"          : "form", "form:run": request.run, "form:selectDocType": request.docType,
+            def payload = ["form": "form", "form:run": request.run, "form:selectDocType": request.docType,
                            "form:docNumber": request.docNumber, "form:buttonHidden": "", "javax.faces.ViewState": viewState]
 
             http.request(Method.POST) {

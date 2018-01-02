@@ -9,11 +9,11 @@ import javax.validation.constraints.Size
 class DocumentRequest {
 
     @NotNull
-    @Size(min=10)
+    @Size(min = 10)
     String run
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     String docType
 
     String docNumber
