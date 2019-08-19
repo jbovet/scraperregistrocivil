@@ -55,7 +55,7 @@ class DocValidatorApplication extends SpringBootServletInitializer {
 
     def query(request) {
         def viewState, html
-        http.ignoreSSLIssues() //ignorar ssl
+        http.ignoreSSLIssues()
 
         try {
             http.request(Method.GET, TEXT) { req ->
