@@ -2,6 +2,11 @@
 # Validador Documento Registro Civil
 ## Permite validar datos cédula identidad chile
 
+
+* How to Run
+```sh
+ ./gradlew bootRun
+```
 -------------
 Method: POST 
 Path: /validate
