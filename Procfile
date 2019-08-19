@@ -1,0 +1,1 @@
+web: java -jar build/libs/scrapper-0.0.1.jar
