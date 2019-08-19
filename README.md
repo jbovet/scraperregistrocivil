@@ -27,8 +27,9 @@ PARAMS (JSON)
 Example:
 Request:
 ```sh
-curl --data '{"run":"11111111-1", "docType":"CEDULA" , "docNumber":"123"}' -v -X POST -H 'Content-Type:application/json' http://localhost:8080/validate
+curl --data '{"run":"11111111-1", "docType":"CEDULA" , "docNumber":"123"}' -v -X POST -H 'Content-Type:application/json' https://registrocivil-validator.herokuapp.com/validate 
 ```
+
 Response:
 ```sh
 {"valid":false,"status":"LA INFORMACIÓN INGRESADA NO CORRESPONDE A LOS REGISTROS, DOCUMENTO INVALIDO."}%
